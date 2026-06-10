@@ -1,0 +1,622 @@
+[
+  {
+    "name": "chat_user",
+    "fields": [
+      {
+        "name": "username",
+        "type": "text",
+        "description": "\u7528\u6236\u540d\u7a31",
+        "options": null
+      },
+      {
+        "name": "avatar",
+        "type": "text",
+        "description": "\u982d\u50cf URL",
+        "options": null
+      },
+      {
+        "name": "status",
+        "type": "text",
+        "description": "\u72c0\u614b (online, offline, busy)",
+        "options": [
+          "online",
+          "offline",
+          "busy"
+        ]
+      },
+      {
+        "name": "password",
+        "type": "text",
+        "description": "\u7528\u6236\u5bc6\u78bc",
+        "options": null
+      },
+      {
+        "name": "bio",
+        "type": "text",
+        "description": "\u500b\u4eba\u7c21\u4ecb",
+        "options": null
+      },
+      {
+        "name": "cover_photo",
+        "type": "text",
+        "description": "\u500b\u4eba\u5c01\u9762\u7167\u7247 URL",
+        "options": null
+      }
+    ]
+  },
+  {
+    "name": "chat_message",
+    "fields": [
+      {
+        "name": "sender_id",
+        "type": "text",
+        "description": "\u767c\u9001\u8005 ID",
+        "options": null
+      },
+      {
+        "name": "receiver_id",
+        "type": "text",
+        "description": "\u63a5\u6536\u8005 ID (\u6216\u662f\u7fa4\u7d44 ID)",
+        "options": null
+      },
+      {
+        "name": "content",
+        "type": "rich_text",
+        "description": "\u8a0a\u606f\u5167\u5bb9 (Rich Text for larger content)",
+        "options": null
+      },
+      {
+        "name": "msg_type",
+        "type": "text",
+        "description": "\u8a0a\u606f\u985e\u578b (text, image, file, sticker, video, audio)",
+        "options": [
+          "text",
+          "image",
+          "file",
+          "sticker",
+          "video",
+          "audio"
+        ]
+      },
+      {
+        "name": "metadata",
+        "type": "rich_text",
+        "description": "\u984d\u5916\u8cc7\u8a0a (Rich Text for larger metadata)",
+        "options": null
+      },
+      {
+        "name": "is_read",
+        "type": "bool",
+        "description": "\u662f\u5426\u5df2\u8b80",
+        "options": null
+      },
+      {
+        "name": "is_revoked",
+        "type": "bool",
+        "description": "\u662f\u5426\u6536\u56de",
+        "options": null
+      },
+      {
+        "name": "media_data",
+        "type": "rich_text",
+        "description": "\u5132\u5b58\u7e2e\u5716\u6216\u5c0f\u578b\u5a92\u9ad4\u8cc7\u6599 (Base64)",
+        "options": null
+      },
+      {
+        "name": "media_id",
+        "type": "text",
+        "description": "\u9023\u7d50\u81f3 chat_media \u7684 ID (\u82e5\u6709\u5927\u578b\u6a94\u6848)",
+        "options": null
+      }
+    ]
+  },
+  {
+    "name": "chat_friend",
+    "fields": [
+      {
+        "name": "user_id",
+        "type": "text",
+        "description": "\u7528\u6236 ID",
+        "options": null
+      },
+      {
+        "name": "friend_id",
+        "type": "text",
+        "description": "\u597d\u53cb ID",
+        "options": null
+      },
+      {
+        "name": "status",
+        "type": "text",
+        "description": "\u597d\u53cb\u72c0\u614b",
+        "options": [
+          "pending",
+          "accepted",
+          "blocked"
+        ]
+      },
+      {
+        "name": "chat_bg",
+        "type": "rich_text",
+        "description": "\u804a\u5929\u5ba4\u5c08\u5c6c\u80cc\u666f\u5716\u7247 (Base64)",
+        "options": null
+      }
+    ]
+  },
+  {
+    "name": "user_sticker",
+    "fields": [
+      {
+        "name": "owner_id",
+        "type": "text",
+        "description": "\u64c1\u6709\u8005 ID",
+        "options": null
+      },
+      {
+        "name": "url",
+        "type": "rich_text",
+        "description": "\u8cbc\u5716\u5716\u7247 URL (DataURI)",
+        "options": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime",
+        "description": "\u5efa\u7acb\u6642\u9593",
+        "options": null
+      }
+    ]
+  },
+  {
+    "name": "chat_media",
+    "fields": [
+      {
+        "name": "original_name",
+        "type": "text",
+        "description": "Original filename",
+        "options": null
+      },
+      {
+        "name": "mime_type",
+        "type": "text",
+        "description": "MIME type",
+        "options": null
+      },
+      {
+        "name": "data",
+        "type": "rich_text",
+        "description": "Base64 data (if small) or empty (if chunked)",
+        "options": null
+      },
+      {
+        "name": "is_chunked",
+        "type": "bool",
+        "description": "Whether the file is split into chunks",
+        "options": null
+      },
+      {
+        "name": "chunk_count",
+        "type": "number",
+        "description": "Total number of chunks",
+        "options": null
+      }
+    ]
+  },
+  {
+    "name": "chat_media_chunk",
+    "fields": [
+      {
+        "name": "parent_id",
+        "type": "text",
+        "description": "ID of the parent chat_media object",
+        "options": null
+      },
+      {
+        "name": "chunk_index",
+        "type": "number",
+        "description": "Order of this chunk (0-based)",
+        "options": null
+      },
+      {
+        "name": "data",
+        "type": "rich_text",
+        "description": "Base64 data of this chunk",
+        "options": null
+      }
+    ]
+  },
+  {
+    "name": "social_post",
+    "fields": [
+      {
+        "name": "user_id",
+        "type": "text",
+        "description": "Author ID",
+        "options": null
+      },
+      {
+        "name": "content",
+        "type": "rich_text",
+        "description": "Post text content",
+        "options": null
+      },
+      {
+        "name": "images",
+        "type": "rich_text",
+        "description": "JSON array of image URLs",
+        "options": null
+      },
+      {
+        "name": "visibility",
+        "type": "text",
+        "description": "public, friends, private",
+        "options": [
+          "public",
+          "friends",
+          "private"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "social_comment",
+    "fields": [
+      {
+        "name": "post_id",
+        "type": "text",
+        "description": "ID of the post",
+        "options": null
+      },
+      {
+        "name": "user_id",
+        "type": "text",
+        "description": "Commenter ID",
+        "options": null
+      },
+      {
+        "name": "content",
+        "type": "rich_text",
+        "description": "Comment text",
+        "options": null
+      }
+    ]
+  },
+  {
+    "name": "social_like",
+    "fields": [
+      {
+        "name": "post_id",
+        "type": "text",
+        "description": "ID of the post",
+        "options": null
+      },
+      {
+        "name": "user_id",
+        "type": "text",
+        "description": "Liker ID",
+        "options": null
+      }
+    ]
+  },
+  {
+    "name": "user_favorite",
+    "fields": [
+      {
+        "name": "user_id",
+        "type": "text",
+        "description": "User who favorited the message",
+        "options": null
+      },
+      {
+        "name": "message_id",
+        "type": "text",
+        "description": "ID of the favorited message",
+        "options": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime",
+        "description": "When it was favorited",
+        "options": null
+      }
+    ]
+  },
+  {
+    "name": "user_note",
+    "fields": [
+      {
+        "name": "user_id",
+        "type": "text",
+        "description": "Owner of the note",
+        "options": null
+      },
+      {
+        "name": "title",
+        "type": "text",
+        "description": "Note title",
+        "options": null
+      },
+      {
+        "name": "content",
+        "type": "rich_text",
+        "description": "Note content",
+        "options": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime",
+        "description": "Creation time",
+        "options": null
+      },
+      {
+        "name": "updated_at",
+        "type": "datetime",
+        "description": "Last update time",
+        "options": null
+      }
+    ]
+  },
+  {
+    "name": "user_todo",
+    "fields": [
+      {
+        "name": "user_id",
+        "type": "text",
+        "description": "Owner of the todo item",
+        "options": null
+      },
+      {
+        "name": "content",
+        "type": "text",
+        "description": "Task content",
+        "options": null
+      },
+      {
+        "name": "is_completed",
+        "type": "bool",
+        "description": "Completion status",
+        "options": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime",
+        "description": "Creation time",
+        "options": null
+      }
+    ]
+  },
+  {
+    "name": "chat_group",
+    "fields": [
+      {
+        "name": "name",
+        "type": "text",
+        "description": "\u7fa4\u7d44\u540d\u7a31",
+        "options": null
+      },
+      {
+        "name": "avatar",
+        "type": "rich_text",
+        "description": "\u7fa4\u7d44\u982d\u50cf (\u652f\u63f4\u4e0a\u50b3\u81ea\u5b9a\u7fa9\u5716\u7247)",
+        "options": null
+      },
+      {
+        "name": "creator_id",
+        "type": "text",
+        "description": "\u5efa\u7acb\u8005 ID",
+        "options": null
+      },
+      {
+        "name": "chat_bg",
+        "type": "rich_text",
+        "description": "\u7fa4\u7d44\u5c08\u5c6c\u80cc\u666f\u5716\u7247 (Base64)",
+        "options": null
+      }
+    ]
+  },
+  {
+    "name": "chat_group_member",
+    "fields": [
+      {
+        "name": "group_id",
+        "type": "text",
+        "description": "\u7fa4\u7d44 ID",
+        "options": null
+      },
+      {
+        "name": "user_id",
+        "type": "text",
+        "description": "\u6210\u54e1 ID",
+        "options": null
+      },
+      {
+        "name": "role",
+        "type": "text",
+        "description": "\u6210\u54e1\u89d2\u8272 (admin, member)",
+        "options": [
+          "admin",
+          "member"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "mail_account",
+    "fields": [
+      {
+        "name": "user_id",
+        "type": "text",
+        "description": "\u4e3b\u5e33\u865f ID",
+        "options": null
+      },
+      {
+        "name": "email_address",
+        "type": "text",
+        "description": "\u5c08\u5c6c\u4fe1\u7bb1\u5730\u5740",
+        "options": null
+      },
+      {
+        "name": "is_active",
+        "type": "bool",
+        "description": "\u662f\u5426\u555f\u7528\u4fe1\u7bb1\u529f\u80fd",
+        "options": null
+      }
+    ]
+  },
+  {
+    "name": "mail_message",
+    "fields": [
+      {
+        "name": "sender_email",
+        "type": "text",
+        "description": "\u767c\u4ef6\u4eba\u4fe1\u7bb1",
+        "options": null
+      },
+      {
+        "name": "receiver_email",
+        "type": "text",
+        "description": "\u6536\u4ef6\u4eba\u4fe1\u7bb1",
+        "options": null
+      },
+      {
+        "name": "subject",
+        "type": "text",
+        "description": "\u90f5\u4ef6\u4e3b\u65e8",
+        "options": null
+      },
+      {
+        "name": "content",
+        "type": "rich_text",
+        "description": "\u90f5\u4ef6\u6b63\u6587\u5167\u5bb9",
+        "options": null
+      },
+      {
+        "name": "attachments",
+        "type": "rich_text",
+        "description": "\u9644\u4ef6\u5716\u7247URLs (JSON array)",
+        "options": null
+      },
+      {
+        "name": "is_read",
+        "type": "bool",
+        "description": "\u662f\u5426\u5df2\u8b80",
+        "options": null
+      },
+      {
+        "name": "reply_to_id",
+        "type": "text",
+        "description": "\u56de\u8986\u7684\u90f5\u4ef6 ID (\u82e5\u70ba\u56de\u8986\u4fe1\u4ef6)",
+        "options": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime",
+        "description": "\u767c\u9001\u6642\u9593",
+        "options": null
+      }
+    ]
+  },
+  {
+    "name": "shared_gallery",
+    "fields": [
+      {
+        "name": "user_id",
+        "type": "text",
+        "description": "Uploader ID",
+        "options": null
+      },
+      {
+        "name": "image_url",
+        "type": "rich_text",
+        "description": "Image URL or Base64",
+        "options": null
+      }
+    ]
+  },
+  {
+    "name": "user_app_data",
+    "fields": [
+      {
+        "name": "user_id",
+        "type": "text",
+        "description": "User ID",
+        "options": null
+      },
+      {
+        "name": "app_name",
+        "type": "text",
+        "description": "Name of the app (e.g., whiteboard, habit_tracker)",
+        "options": null
+      },
+      {
+        "name": "data",
+        "type": "rich_text",
+        "description": "JSON serialized data",
+        "options": null
+      },
+      {
+        "name": "updated_at",
+        "type": "datetime",
+        "description": "Last update time",
+        "options": null
+      }
+    ]
+  },
+  {
+    "name": "user_points",
+    "fields": [
+      {
+        "name": "user_id",
+        "type": "text",
+        "description": "\u7528\u6236 ID",
+        "options": null
+      },
+      {
+        "name": "total_points",
+        "type": "number",
+        "description": "\u7e3d\u7a4d\u5206",
+        "options": null
+      },
+      {
+        "name": "last_checkin_date",
+        "type": "text",
+        "description": "\u6700\u5f8c\u7c3d\u5230\u65e5\u671f (YYYY-MM-DD)",
+        "options": null
+      },
+      {
+        "name": "checkin_streak",
+        "type": "number",
+        "description": "\u9023\u7e8c\u7c3d\u5230\u5929\u6578",
+        "options": null
+      }
+    ]
+  },
+  {
+    "name": "points_history",
+    "fields": [
+      {
+        "name": "user_id",
+        "type": "text",
+        "description": "\u7528\u6236 ID",
+        "options": null
+      },
+      {
+        "name": "amount",
+        "type": "number",
+        "description": "\u7a4d\u5206\u8b8a\u52d5\u6578\u91cf",
+        "options": null
+      },
+      {
+        "name": "reason",
+        "type": "text",
+        "description": "\u8b8a\u52d5\u539f\u56e0",
+        "options": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime",
+        "description": "\u767c\u751f\u6642\u9593",
+        "options": null
+      }
+    ]
+  }
+]
