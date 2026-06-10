@@ -1,2 +1,162 @@
 # someboday
-someboday.io
+
+A modern web-based chat application (formerly Chat App) integrated with Trickle Database.
+
+## Features
+- **User System**: 
+    - Secure Registration & Login with Password.
+    - Profile Management (Avatar, Bio, Password, Status).
+    - **Status Indicators**: Automatic global presence sync. Shows 'Online' when using, 'Busy' when idle or tab hidden, and 'Offline' when closed/logged out.
+- **Friend & Group System**: 
+    - Search and add friends.
+    - **Friend Requests**: View, accept, or decline friend invitations.
+    - **Group Chat**: Create multiplayer group chats, upload custom group avatars, and chat with multiple friends simultaneously.
+- **Customization**:
+    - **Custom Buttons**: Upload your own images to completely change the look of sidebar tabs and chat interaction buttons (Send, Emoji, Upload, etc.).
+- **Chat**: 
+    - Real-time messaging with text, images, files, and stickers.
+    - **Media Support**: 
+        - **Images**: Automatic compression allows sending high-res photos.
+        - **Video/Audio/Files**: Support large files up to 100MB. Files > 300KB are stored separately and require download/loading to view.
+        - **Preview**: Preview files before sending.
+    - **Read Receipts**: See when messages are read.
+    - **Message Revocation**: Recall sent messages.
+    - **Media Lightbox**: Full-screen preview for Images and Videos.
+    - **Favorites**: Bookmark important messages.
+- **File Management**:
+    - Centralized view for all files sent/received in chats.
+- **AI Translator**:
+    - AI-powered tool for highly accurate translations between multiple languages.
+- **Whiteboard**:
+    - Built-in drawing canvas to sketch ideas, with customizable brush sizes, colors, and an export-to-image feature.
+- **Notes**:
+    - Personal notepad to create, edit, and delete notes.
+- **Points Center**:
+    - Daily check-in system with streak rewards.
+    - Points history tracking and display.
+- **Tasks (Todo List)**:
+    - Manage daily tasks with a simple checklist.
+    - Mark tasks as complete/incomplete.
+    - Delete unwanted tasks.
+- **App Center**:
+    - Centralized space for all utility and productivity applications.
+- **Utility Tools**:
+    - **Calculator**: Built-in standard calculator.
+    - **Calendar**: Simple interactive monthly calendar view.
+    - **World Clock**: Track time across different global cities.
+    - **Expense Tracker**: Keep a simple ledger of income and expenses.
+    - **Unit Converter**: Quick conversions for length, weight, and temperature.
+    - **Stopwatch**: Precise timer with lap recording.
+    - **Password Generator**: Create secure random passwords.
+    - **BMI Calculator**: Quick health metric calculator.
+    - **Pomodoro Timer**: Work and break interval timer for productivity.
+    - **Random Picker**: Input a list and randomly select an item.
+    - **Color Picker**: Pick colors and copy HEX/RGB codes.
+    - **AI Dictionary**: Look up words with AI-powered translation and examples.
+    - **QR Code Maker**: Generate QR codes from text or URLs.
+    - **Habit Tracker**: Track daily habits with streaks.
+    - **Text Counter**: Count characters, words, and lines.
+    - **Tip Calculator**: Calculate tips and split bills.
+    - **Dice Roller**: Roll multiple dice randomly.
+    - **Coin Flipper**: Simple heads or tails coin toss.
+    - **Base64 Tool**: Encode and decode Base64 strings.
+    - **JSON Formatter**: Prettify and validate JSON data.
+    - **Gradient Generator**: Create CSS linear gradients.
+    - **URL Tool**: URL encoding and decoding utility.
+    - **Lorem Generator**: Generate placeholder text.
+    - **Age Calculator**: Calculate exact age from DOB.
+    - **Interest Calculator**: Calculate compound interest.
+    - **Discount Calculator**: Calculate final price and savings after discount.
+    - **Morse Code**: Encode and decode text to Morse Code.
+    - **Aspect Ratio**: Calculate maintaining image proportions.
+    - **Date Difference**: Calculate days between two dates.
+    - **Regex Tester**: Test regular expressions with highlighting.
+    - **UUID Generator**: Create standard v4 UUID strings.
+    - **BPM Counter**: Tap to calculate Beats Per Minute.
+    - **Text to Speech**: Native browser voice synthesis.
+    - **Base Converter**: Convert between decimal, hex, binary, and octal.
+    - **Word Scrambler**: Randomize letters or word order.
+    - **HTML Encode**: HTML Entity Encoder/Decoder.
+    - **Case Convert**: Text Case Converter (UPPERCASE, camelCase, etc.).
+    - **Color Convert**: HEX to RGB and vice versa.
+    - **Percentage Calc**: Quick percentage value calculations.
+    - **Loan Calc**: Loan and mortgage payment calculator.
+    - **Margin Calc**: Profit margin calculator.
+    - **Salary Calc**: Salary conversion between hourly/monthly/yearly.
+    - **Rule of Three**: Calculate proportions easily.
+    - **GCD & LCM**: Find Greatest Common Divisor and Least Common Multiple.
+    - **Prime Checker**: Check if a number is prime.
+    - **Roman Numeral**: Convert numbers to Roman numerals and back.
+    - **Number to Words**: Convert digits into English words.
+    - **Time Calc**: Add or subtract hours and minutes.
+    - **BMR Calc**: Calculate Basal Metabolic Rate.
+    - **Speed Calc**: Calculate speed, distance, or time.
+    - **Countdown Timer**: Set a timer and get notified.
+    - **Tally Counter**: Simple tap counter.
+    - **Random Number**: Generate random numbers within a range.
+    - **Hash Generator**: Generate SHA-256, SHA-512 hashes.
+    - **CSV to JSON**: Convert CSV text data to JSON format.
+    - **Water Tracker**: Track your daily water intake.
+    - **White Noise**: Play synthetic noise to focus or relax.
+    - **Reaction Test**: Test your reflex speed.
+    - **Markdown Preview**: Simple live markdown previewer.
+    - **IP Info**: Check your current public IP address and location.
+- **News Feed**:
+    - Daily updated news organized by multiple categories.
+- **Music**:
+    - Mini music player with track playlist, play controls, and local audio file upload support.
+- **Weather**:
+    - Current local weather conditions and weekly forecast with real data from Open-Meteo API.
+    - Click through to read full articles from various sources.
+- **someboday's (Video Feed)**:
+    - Vertical short video sharing space similar to LINE VOOM/TikTok.
+    - Support large video files upload up to 50MB using cloud storage.
+- **Social Feed (Moments)**:
+    - Share posts with text and images.
+    - Like and Comment on friends' posts.
+    - Privacy settings (Public, Friends Only, Private).
+- **Game Center**:
+    - **Tic Tac Toe**: Classic 3x3 strategy game.
+    - **Rock Paper Scissors**: Quick luck-based game against computer.
+    - **Memory Match**: Test your memory by matching pairs of cards.
+    - **Whack-a-Mole**: Fast-paced reaction game.
+    - **Super Jumper**: Vertical platform jumping game (Doodle Jump style).
+    - **Snake**: Classic snake game to eat apples and grow longer.
+
+## Structure
+- `index.html`: Landing page (Home).
+- `login.html`: Login/Register page.
+- `chat.html`: Main chat interface.
+- `utils/`: Database and helper functions.
+- `components/`: React components.
+  - `ChatInterface.js`: Main chat logic.
+  - `FriendRequests.js`: Friend request management modal.
+  - `LoginForm.js`: Login and Registration form.
+  - `ProfileSettings.js`: User profile settings modal.
+  - `StickerPicker.js`: Sticker selection tool.
+  - `MediaLightbox.js`: Full-screen media (Image/Video) viewer.
+  - `EmojiPicker.js`: Emoji selection tool.
+  - `SocialFeed.js`: Social media feed component.
+
+## Updates
+- **Login Persistence**: Added 5-day login state retention mechanism.
+- Added **Tasks (Todo List)** feature for task management.
+- Added **Notes** feature for personal record keeping.
+- Added **Files** and **Favorites** tabs in sidebar.
+- Changed system icon to custom logo.
+- Added status management (Online/Busy/Offline).
+- **Video & Audio Support**: Added direct playback and preview for video/audio files.
+- **Media Lightbox**: Replaced ImageLightbox with MediaLightbox to support video playback.
+- Added message read status and revocation.
+- **Database Optimization**: Updated `chat_message` schema to use `rich_text` for content and added `media_data` field for storing large media files (Base64) separately from display text.
+- **Cover Photo**: Added support for custom cover photos in user profiles.
+- **Friend Profile**: Added a modal to view friend's detailed profile (Cover, Avatar, Bio) from chat.
+- **Sync**: Implemented real-time synchronization for files, favorites, notes, tasks, and social feed across devices.
+- **Message Search**: Added ability to search text within the current chat conversation.
+    - **Message Inbox (最新訊息框)**: Unread messages are shown in a dedicated view upon login. You can safely dismiss notifications here without deleting actual chat history.
+    - **Shared Gallery**: A public gallery space where all users can upload and view images synchronously, and easily save them as personal stickers. Displays uploader info and allows owners to delete their images.
+    - **Smart Scrolling**: Chat interface only auto-scrolls to new messages if you're already at the bottom, otherwise it displays an unread count badge to let you scroll down manually.
+    - **UI Responsiveness**: Improved scrollbar behavior for sidebars on smaller screens and adapted video aspect ratios in someboday's to prevent cropping.
+    - **Custom Video Player**: Built-in video player with custom controls replacing native video tags in chats and VoomFeed.
+    - **Group Management**: Added ability to leave group for members and delete group completely for the group creator.
+    - **Chat Background Sync**: Custom chat backgrounds are now stored in the database and synchronized across devices and between chat participants.
